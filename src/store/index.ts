@@ -7,6 +7,8 @@ const middleware = applyMiddleware(reduxThunk);
 
 export default createStore(rootReducer, middleware);
 
+export * from './IRootState.type';
+
 export {
   actions as counterActions,
   selectors as counterSelectors,

@@ -1,10 +1,11 @@
 import * as types from './actionTypes';
+import { IActions, ISetAction } from './actions';
 
-const initialState = {
+const initialState: IState = {
   value: 0,
 };
 
-export default function reducer(state = initialState, action) {
+export default function reducer(state: IState = initialState, action: IActions) {
   switch (action.type) {
     case types.COUNTER_INCREMENT:
       return {
@@ -27,10 +28,14 @@ export default function reducer(state = initialState, action) {
     case types.COUNTER_SET:
       return {
         ...state,
-        value: action.payload,
+        value: (action as ISetAction).payload,
       };
 
     default:
       return state;
   }
+}
+
+export interface IState {
+  value: number;
 }
